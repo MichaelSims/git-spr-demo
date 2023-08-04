@@ -3,9 +3,6 @@ githubRepoName: git-spr-demo
 githubHost: github.com
 requireChecks: true
 requireApproval: false
-githubRemote: origin
-githubBranch: main
-remoteBranches: []
 mergeMethod: rebase
 mergeQueue: false
 forceFetchTags: false
