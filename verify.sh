@@ -3,6 +3,7 @@
 set -x
 set -e
 
+gitOutput=$(git show --pretty=full)
 verifyDelay=$(git show --pretty=full | awk '/^    verify-delay:/ { print $2 }')
 verifyResultAfterDelay=$(git show --pretty=full | awk '/^    verify-result-after-delay:/ { print $2 }')
 
