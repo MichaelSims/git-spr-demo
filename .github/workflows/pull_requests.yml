@@ -14,7 +14,7 @@ jobs:
         name: Checkout repo
         with:
           fetch-depth: 0
-      - run: git checkout ${{ github.event.pull_request.head.ref }}
+      - run: git checkout origin/${{ github.event.pull_request.head.ref }}
 
       - name: Verify
         run: |
