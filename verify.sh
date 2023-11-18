@@ -3,18 +3,19 @@
 set -x
 set -e
 
+# shellcheck disable=SC2034
 gitOutput=$(git show --pretty=full)
 verifyDelay=$(git show --pretty=full | awk '/^    verify-delay:/ { print $2 }')
-verifyResultAfterDelay=$(git show --pretty=full | awk '/^    verify-result-after-delay:/ { print $2 }')
+verifyResult=$(git show --pretty=full | awk '/^    verify-result:/ { print $2 }')
 
 if [[ "$verifyDelay" -gt 0 ]]; then
   echo "Delaying $verifyDelay seconds"
   sleep "$verifyDelay"
 fi
 
-if [[ "$verifyResultAfterDelay" ]]; then
-  echo "Exiting with code $verifyResultAfterDelay"
-  exit "$verifyResultAfterDelay"
+if [[ "$verifyResult" ]]; then
+  echo "Exiting with code $verifyResult"
+  exit "$verifyResult"
 else
     exit 255
 fi
